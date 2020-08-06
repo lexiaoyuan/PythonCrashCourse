@@ -22,3 +22,6 @@ way = "I would like to own a " + commuter[2].title()
 print(way)
 way = "I would like to own a " + commuter[3].title()
 print(way)
+
+differents = ['word', 23, commuter, way]
+print(differents)
