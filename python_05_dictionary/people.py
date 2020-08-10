@@ -51,3 +51,42 @@ print("upper: " + dictionary['upper'])
 
 for dic in dictionary.keys():
     print(dic)
+
+people_1 = {
+    'first_name': 'le',
+    'last_name': 'xiaoyuan',
+    'age': 21,
+    'city': 'dawu'
+}
+
+people_2 = {
+    'first_name': 'le',
+    'last_name': 'xiaoyuanbeta',
+    'age': 21,
+    'city': 'dawu'
+}
+
+people_3 = {
+    'first_name': 'ben',
+    'last_name': 'jamin',
+    'age': 21,
+    'city': 'dawu'
+}
+
+people = [people_1, people_2, people_3]
+
+for p in people:
+    print(p)
+
+lucky_numbers = {
+    'lexiaoyuan': [6, 66],
+    'benjamin': [66, 666],
+    'lexiaoyuanbeta': [666, 6666],
+    'yege': [6666, 66666],
+    'ruanwei': [66666, 666666],
+}
+
+for name, numbers in lucky_numbers.items():
+    print(name.title() + "'s favorite number are:")
+    for number in numbers:
+        print("\t" + str(number))
