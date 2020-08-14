@@ -57,6 +57,11 @@ class Battery():
         message += " miles on a full charge."
         print(message)
 
+    def upgrade_battery(self):
+        """ 检查电瓶容量 """
+        if self.battery_size != 85:
+            self.battery_size = 85
+
 
 class ElectricCar(Car):
     """ 电动汽车的独特之处 """
@@ -86,4 +91,8 @@ my_tesla.fill_gas_tank()
 
 my_tesla.battery.describe_battery()
 
+my_tesla.battery.get_range()
+
+my_tesla.battery.get_range()
+my_tesla.battery.upgrade_battery()
 my_tesla.battery.get_range()
