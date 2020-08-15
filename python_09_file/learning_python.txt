@@ -1,0 +1,8 @@
+In Python you can import
+In Python you can def
+In Python you can class
+In Python you can list
+In Python you can dictionary
+In Python you can for
+In Python you can if
+In Python you can while
