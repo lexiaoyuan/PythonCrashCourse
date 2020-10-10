@@ -160,7 +160,7 @@ names2 = names[:] #复制之后，两者是互不影响的
 names2 = names # 两者指向同一个列表，一个变，都变
 ```
 
-### 1.3 元祖( , )相关
+### 1.3 元祖（( , )）相关
 
 1. 定义元祖
 
@@ -234,5 +234,238 @@ else:
     do something
 ```
 
+### 1.5  字典（{ ' ': ' ',  ' ': 5}）相关
 
+1. 定义字典
+
+```python
+names = {'first': 'le', 'last': 'xiaoyuan', 'age': 21,} # 最后一个后面也可以加上逗号
+# 在空字典中添加键值对
+names = {}
+names['fisrt'] = 'le'
+names['last'] = 'xiaoyuan'
+names['age'] = 21
+```
+
+2. 访问字典中的值
+
+```python
+names['first']
+```
+
+3. 添加键值对
+
+```python
+names['like'] = 'coding' # Python不关心键值对的添加顺序
+```
+
+4. 修改字典中的值
+
+```python
+names['last'] = 'xiaoyuanbeta'
+```
+
+5. 删除键值对
+
+```python
+del names['last'] # 永远删除
+```
+
+6. 遍历字典
+
+```python
+for k,v in names.items(): # items()返回键值对列表
+
+for k in names.keys(): # keys()返回所有键的列表
+    
+for v in names.values(): # values()返回所有值的列表
+```
+
+7. 按顺序遍历字典中所有键
+
+```python
+for k in sorted(names.keys()):
+```
+
+8. 提取字典中所有不重复的值
+
+```python
+for v in set(names.values()): # set()创建一个集合，但每个元素都不重复
+```
+
+### 1.6 用户输入相关
+
+1. 获取用户输入
+
+```python
+message = input("Input ...") # 等待用户输入，回车继续运行
+```
+
+2. 获取数值输入
+
+```python
+age = input("Input ...")
+age = int(age) # int()将数字的字符转换为数值
+```
+
+3. 求模运算符（%）
+
+```python
+4 % 3 # 将两数相除并返回余数
+```
+
+### 1.7 while循环
+
+1. 使用while循环
+
+```python
+while conditions:
+    # do something
+```
+
+2. 使用break退出循环
+
+```python
+while True:
+    # do something
+    break
+```
+
+3. 在循环中使用continue
+
+```python
+while conditions:
+    # do something
+    continue
+```
+
+4. 使用while来处理列表和字典
+
+> 不应再for循环中修改列表，否则将导致Python难以跟踪其中的元素。要在遍历列表的同时对其进行修改，可使用while循环。
+
+```python
+names = ['le', 'xiao', 'yuan']
+while names:
+    # do something
+
+while name in names:
+    # do something
+```
+
+### 1.8 函数相关
+
+1. 定义函数
+
+```python
+def function():
+    # do something
+function() # 调用函数
+```
+
+2. 向函数传递信息
+
+```python
+def function(arguments): # arguments可以为任意值
+    # do something
+function('name')
+```
+
+3. 位置实参
+
+```python
+def function(arguments, other):
+    # do something
+function('name', 21) # 按顺序关联
+```
+
+4. 关键字实参
+
+```python
+def function(arguments, other):
+    # do something
+function(other=21, arguments='name') # 指定关联
+```
+
+5. 默认值
+
+```python
+def function(arguments, other=21): # 默认值应当放在最后
+    # do something
+function('name') # other不指定则为默认值
+function('name', 30) # other指定了则为指定的值
+```
+
+6. 返回值
+
+```python
+def function(arguments, other):
+    # do something
+    return arguments.title() + ':' + int(other) # 可以返回任何类型的值，包括列表和字典等复杂的数据结构
+function('name', 21)
+```
+
+7. 传递列表
+
+```python
+def function(names):
+    for name in names:
+        # do something
+function(['le', 'xiao', 'yuan']) # 将列表传递给函数后，函数对列表所做的修改是永久性的
+```
+
+8. 禁止函数修改列表
+
+```python
+def function(names[:]): # 向列表传递列表的副本而不是原件
+    # do something
+names = ['le', 'xiao', 'yuan']
+function(names[:]) 
+```
+
+9. 传递任意数量的实参
+
+```python
+def function(arguments, *other): # *other可以接受任意数量的形参，会创建一个空元组，将接收到的值都存到元组中。必须放在最后面
+    for other in others:
+    	# do something
+function('name', 'le', 'xiaoyuan')    
+```
+
+10. 使用任意数量的关键字实参
+
+```python
+def function(arguments, **other): # **other可以接受任意数量的键值对，会创建一个空字典
+    for k, v in other.items():
+        # do something
+function('le', first='xiao', last='yuan')
+```
+
+11. 导入整个模块
+
+```python
+import module_name # 可以在程序中使用模块中的所有函数
+module_name.function_name()
+```
+
+12. 导入特定的函数
+
+```python
+from module_name import function_1, function_2
+function_1() # 调用时不需要通过 . 号
+function_2('lexiaoyuan')
+```
+
+13. 给函数指定别名
+
+```python
+from module_name import function_1 as f1 # 将函数function_1()重命名为f1()
+f1() # 使用function_1()的地方都可省略为f1()
+```
+
+14. 给模块指定别名
+
+```python
+import numpy as np # 给模块指定简短的别名
+np.dot() # 函数内的名称不变，只是模块名更简洁
+```
 
