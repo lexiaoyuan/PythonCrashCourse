@@ -48,6 +48,12 @@ name.strip()
 str(age)
 ```
 
+8. 分隔字符串
+
+```python
+name.split() # split()以空格为分隔符将字符串拆分成多个部分，并将其存到一个列表中
+```
+
 ### 1.2 列表（[ , ])相关
 
 1. 访问列表元素
@@ -469,3 +475,156 @@ import numpy as np # 给模块指定简短的别名
 np.dot() # 函数内的名称不变，只是模块名更简洁
 ```
 
+### 1.9 类
+
+1. 创建类
+
+```python
+class ClassName():
+    def __init__(self, name, age): # 该方法会自动运行，且self是必须的，并位于其它参数前
+        self.name = name
+        self.age = age
+    def function(self):
+        # ...
+```
+
+2. 根据类创建实例
+
+```python
+dog = ClassName('willie', 6) # 创建实例时，不需要传递self参数
+
+# 访问属性
+dog.name
+
+# 调用方法
+dog.function()
+```
+
+3. 给属性指定默认值
+
+```python
+class ClassName():
+    def __init__(self, name, age): # 该方法会自动运行，且self是必须的，并位于其它参数前
+        self.name = name
+        self.age = age
+        self.like = 'sit' # 指定初始值
+    def function(self):
+        # ...
+```
+
+4. 修改属性的值
+
+```python
+# 直接修改属性的值
+dog.like = 'roll over'
+
+# 通过方法修改属性的值
+class ClassName():
+    --snip--
+    def function(self, like):
+        self.like = like
+dog.function('roll over') # 只需要传递like参数
+```
+
+5. 继承
+
+```python
+class SmallDog(Dog): # 父类必须在当前文件中，且位于自雷前面
+    def __init__(self, name, age):
+        super().__init__(self, name, age) # super()函数将父类和子类联系起来
+```
+
+6. 重写父类的方法
+
+```python
+class SamllDog(Dog):
+    --snip--
+    def function(self): # 和父类方法同名
+        # ...
+```
+
+7. 导入类
+
+```python
+from car import Car # 从car模块导入Car类
+my_car = Car()
+```
+
+### 1.10 文件
+
+1. 读取整个文件
+
+```python
+with open(filename) as file_object: # open()打开文件
+    contents = file_object.read()  # read()读取整个文件
+    print(contents)
+```
+
+2. 逐行读取
+
+```python
+with open(filename) as file_object:
+    for line in file_object:
+        print(line)
+```
+
+3. 逐行读取并存储在列表中
+
+```python
+with open(filename) as file_object:
+    lines = file_object.readlines() # readlines()从文件中读取每一行，并将其存储在一个列表中
+```
+
+4. 写入文件
+
+```python
+with open(filename, 'w') as file_object: # 'w'表示写入模式（会覆盖原文件内容）
+    file_object.write("something") # write()将字符串写入文件
+```
+
+5. 附加到文件
+
+```python
+with open(filename, 'a') as file_object:
+    file_object.write("something") # write()将字符串附加到末尾
+```
+
+6. try-except处理异常
+
+```python
+try:
+    # do something
+except Error: # Error要替换成具体的异常
+    # do something
+```
+
+7. else代码块
+
+```python
+try: # 尝试执行try中的代码，可能引发异常
+    # do something
+except Error:
+    # do something
+else: # try代码块执行成功时才需要执行的代码放在else代码块中
+    # do something
+```
+
+8. pass语句
+
+```python
+try:
+    # do something
+except Error:
+    pass # pass让Python什么都不做
+```
+
+9. json模块
+
+```python
+import json
+with open(filename, 'w') as file_object:
+    json.dump(data, file_object) # json.dump()将数据存储到文件file_object中
+
+with open(filename) as file_object:
+	json.load(file_object) # json.load()加载filename中的数据
+```
